@@ -26,7 +26,14 @@ function onStartChangeColors() {
   }
   colorSwitch.isActive = true;
 
-  // Запустить интервал
+  colorSwitch.intervalId = setInterval(() => {
+    const color = colors[randomIntegerFromInterval(colors.length - 1)];
+
+    refs.body.setAttribute('style', "background-color: " + color + ";"
+)
+
+    // console.log(color);
+  }, 1000);
 
 }
 
@@ -36,6 +43,6 @@ function onStopChangeColors() {
 }
 
 
-const randomIntegerFromInterval = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+const randomIntegerFromInterval = (max) => {
+  return Math.floor(Math.random() * (max - 0 + 1) + 0);
 };
