@@ -21,10 +21,13 @@ refs.startBtn.addEventListener('click', onStartChangeColors);
 refs.stopBtn.addEventListener('click', onStopChangeColors);
 
 function onStartChangeColors() {
-  if (colorSwitch.isActive) {
-    return;
-  }
-  colorSwitch.isActive = true;
+
+  // if (colorSwitch.isActive) {
+  //   return;
+  // }
+  // colorSwitch.isActive = true;
+
+    refs.startBtn.disabled = true;
 
   colorSwitch.intervalId = setInterval(() => {
     const color = colors[randomIntegerFromInterval(colors.length - 1)];
@@ -39,7 +42,8 @@ function onStartChangeColors() {
 
 function onStopChangeColors() {
   clearInterval(colorSwitch.intervalId);
-  colorSwitch.isActive = false;
+  refs.startBtn.disabled = false;
+  // colorSwitch.isActive = false;
 }
 
 
